@@ -53,7 +53,7 @@ def getTracks(results):
 if token:
     sp = spotipy.Spotify(auth=token)
     playlists = sp.user_playlists(username, limit=50)
-    for playlist in playlists:
+    for playlist in playlists['items']:
     	print('%s : %s') % (playlist['name'], playlist['id'])
     newList = sp.user_playlist_create(username, combinedPlaylistName, public=False)
     for playlistID in playlistArray:
